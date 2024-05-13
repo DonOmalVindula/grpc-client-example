@@ -4,7 +4,7 @@
   <groupId>com.cw2-client</groupId>
   <artifactId>cw-client</artifactId>
   <packaging>jar</packaging>
-  <version>2.0.0</version>
+  <version>3.0.0</version>
   <name>cw-client</name>
   <url>http://maven.apache.org</url>
 

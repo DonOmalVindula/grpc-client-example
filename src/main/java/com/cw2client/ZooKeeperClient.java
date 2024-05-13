@@ -4,11 +4,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.ZooDefs;
-import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
 public class ZooKeeperClient {
@@ -46,5 +42,14 @@ public class ZooKeeperClient {
     public byte[] getData(String path, boolean shouldWatch)
             throws KeeperException, InterruptedException {
         return zooKeeper.getData(path, shouldWatch, null);
+    }
+
+    public void write(String path, byte[] data) throws
+            KeeperException, InterruptedException {
+        zooKeeper.setData(path, data, -1);
+    }
+    public void forceDelete(String path) throws
+            KeeperException, InterruptedException {
+        ZKUtil.deleteRecursive(zooKeeper, path);
     }
 }
